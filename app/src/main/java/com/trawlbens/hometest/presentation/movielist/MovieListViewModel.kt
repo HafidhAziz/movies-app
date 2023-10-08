@@ -7,7 +7,7 @@ import androidx.paging.PagingData
 import androidx.paging.map
 import com.trawlbens.hometest.domain.model.Movie
 import com.trawlbens.hometest.domain.repositories.MoviePagingSource
-import com.trawlbens.hometest.domain.repositories.MovieRepository
+import com.trawlbens.hometest.domain.repositories.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -17,7 +17,7 @@ import javax.inject.Inject
  * Created by M.Hafidh Abdul Aziz on 08/10/23.
  */
 @HiltViewModel
-class MovieListViewModel @Inject constructor(private val repository: MovieRepository) :
+class MovieListViewModel @Inject constructor(private val repository: Repository) :
     ViewModel() {
 
     val moviesPagingData: Flow<PagingData<Movie>> = getMovieListStream()

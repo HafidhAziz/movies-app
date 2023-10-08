@@ -22,7 +22,7 @@ class MovieViewHolder(
             .load(BuildConfig.ORIGINAL_IMAGE_URL + "" + movie?.posterPath)
             .into(binding.imageMovie)
         itemView.setOnClickListener {
-            listener?.onClickMovieItemListener(movie?.id ?: 0)
+            listener?.onClickMovieItemListener(movie?.id ?: 0, movie?.originalTitle.orEmpty())
         }
     }
 }

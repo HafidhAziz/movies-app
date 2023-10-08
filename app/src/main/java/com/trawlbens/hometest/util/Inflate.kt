@@ -1,4 +1,4 @@
-package com.trawlbens.hometest.base
+package com.trawlbens.hometest.util
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

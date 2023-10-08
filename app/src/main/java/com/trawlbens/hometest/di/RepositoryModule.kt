@@ -1,7 +1,7 @@
 package com.trawlbens.hometest.di
 
-import com.trawlbens.hometest.domain.repositories.MovieRepository
-import com.trawlbens.hometest.domain.repositories.MovieRepositoryImpl
+import com.trawlbens.hometest.domain.repositories.Repository
+import com.trawlbens.hometest.domain.repositories.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +17,6 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideApiRepository(movieRepositoryImpl: MovieRepositoryImpl): MovieRepository =
+    fun provideApiRepository(movieRepositoryImpl: RepositoryImpl): Repository =
         movieRepositoryImpl
 }

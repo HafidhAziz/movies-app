@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -54,7 +55,7 @@ dependencies {
     implementation(Libraries.constraintLayout)
 
     implementation(Libraries.room)
-    annotationProcessor(Libraries.roomCompiler)
+    kapt(Libraries.roomCompiler)
 
     implementation(Libraries.hiltAndroid)
     kapt(Libraries.hiltAndroidCompiler)
@@ -74,4 +75,7 @@ dependencies {
     testImplementation(AndroidLibraries.test)
     androidTestImplementation(AndroidLibraries.androidTest)
     androidTestImplementation(AndroidLibraries.espresso)
+
+    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 }

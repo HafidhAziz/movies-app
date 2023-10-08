@@ -10,10 +10,18 @@
 
         <action
             android:id="@+id/open_movie_favorite"
-            app:destination="@id/fragment_movie_favorite">
+            app:destination="@id/fragment_movie_favorite"/>
+
+        <action
+            android:id="@+id/open_movie_detail"
+            app:destination="@id/fragment_movie_detail">
 
             <argument
                 android:name="movieId"
+                app:argType="integer" />
+
+            <argument
+                android:name="movieTitle"
                 android:defaultValue=""
                 app:argType="string" />
         </action>
@@ -25,11 +33,15 @@
         <!-- todo change this to favorite fragment when its ready -->
 
         <action
-            android:id="@+id/open_movie_favorite"
-            app:destination="@id/fragment_movie_favorite">
+            android:id="@+id/open_movie_detail"
+            app:destination="@id/fragment_movie_detail">
 
             <argument
                 android:name="movieId"
+                app:argType="integer" />
+
+            <argument
+                android:name="movieTitle"
                 android:defaultValue=""
                 app:argType="string" />
         </action>
@@ -37,11 +49,15 @@
 
     <fragment
         android:id="@+id/fragment_movie_detail"
-        android:name="com.trawlbens.hometest.presentation.movielist.MovieListFragment">
-        <!-- todo change this to detail fragment when its ready -->
+        android:name="com.trawlbens.hometest.presentation.moviedetail.MovieDetailFragment">
 
         <argument
             android:name="movieId"
+            app:argType="integer" />
+
+        <argument
+            android:name="movieTitle"
+            android:defaultValue=""
             app:argType="string" />
     </fragment>
 </navigation>

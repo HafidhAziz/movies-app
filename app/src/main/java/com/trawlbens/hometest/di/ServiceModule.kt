@@ -1,12 +1,15 @@
 package com.trawlbens.hometest.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.trawlbens.hometest.BuildConfig
-import com.trawlbens.hometest.data.datasource.MovieDataSource
-import com.trawlbens.hometest.data.datasource.MovieDataSourceImpl
+import com.trawlbens.hometest.data.datasource.ApiDataSource
+import com.trawlbens.hometest.data.datasource.ApiDataSourceImpl
 import com.trawlbens.hometest.data.remote.Api
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -26,7 +29,7 @@ object ServiceModule {
     fun provideInterceptor(): Interceptor =
         Interceptor { chain ->
             val request = chain.request()
-            val newUrl = request.url().newBuilder()
+            val newUrl = request.url.newBuilder()
                 .build()
 
             val newRequest = request.newBuilder()
@@ -39,9 +42,10 @@ object ServiceModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(interceptor: Interceptor): OkHttpClient = OkHttpClient
+    fun provideOkHttpClient(@ApplicationContext appContext: Context, interceptor: Interceptor): OkHttpClient = OkHttpClient
         .Builder()
         .addInterceptor(interceptor)
+        .addInterceptor(ChuckerInterceptor(appContext))
         .build()
 
     @Singleton
@@ -65,6 +69,6 @@ object ServiceModule {
 
     @Provides
     @Singleton
-    fun provideMovieDatasource(movieDataSource: MovieDataSourceImpl): MovieDataSource =
+    fun provideMovieDatasource(movieDataSource: ApiDataSourceImpl): ApiDataSource =
         movieDataSource
 }

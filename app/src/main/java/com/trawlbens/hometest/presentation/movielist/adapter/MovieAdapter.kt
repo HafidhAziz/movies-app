@@ -25,7 +25,7 @@ class MovieAdapter(private val listener: OnClickMovieItemListener) :
     }
 
     interface OnClickMovieItemListener {
-        fun onClickMovieItemListener(movieId: Int)
+        fun onClickMovieItemListener(movieId: Int, movieName: String)
     }
 
     companion object {

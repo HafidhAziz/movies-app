@@ -1,4 +1,4 @@
-package com.trawlbens.hometest.base
+package com.trawlbens.hometest.presentation
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -13,7 +13,7 @@ interface BaseView : LifecycleOwner {
         data.observe(this, observer)
     }
 
-    fun <T> observeData(data: LiveData<T>, onChanged: (T?) -> Unit) {
+    fun <T> observeData(data: LiveData<T>, onChanged: (T) -> Unit) {
         observeData(data, Observer { onChanged(it) })
     }
 }

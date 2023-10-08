@@ -5,13 +5,15 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.trawlbens.hometest.R
-import com.trawlbens.hometest.base.BaseFragment
-import com.trawlbens.hometest.base.Inflate
 import com.trawlbens.hometest.databinding.FragmentMovieListBinding
+import com.trawlbens.hometest.presentation.BaseFragment
 import com.trawlbens.hometest.presentation.movielist.adapter.MovieAdapter
 import com.trawlbens.hometest.presentation.movielist.adapter.MovieLoadStateAdapter
+import com.trawlbens.hometest.util.Inflate
+import com.trawlbens.hometest.util.navigateTo
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -48,8 +50,8 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>() {
 
     private fun setupUI() {
         movieAdapter = MovieAdapter(object : MovieAdapter.OnClickMovieItemListener {
-            override fun onClickMovieItemListener(movieId: Int) {
-                gotoDetail()
+            override fun onClickMovieItemListener(movieId: Int, movieName: String) {
+                gotoDetail(movieId, movieName)
             }
         })
         binding.rvHomeMovieList.adapter = movieAdapter.withLoadStateFooter(
@@ -92,10 +94,10 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>() {
     }
 
     private fun gotoFavorite() {
-
+        //todo fav
     }
 
-    private fun gotoDetail() {
-
+    private fun gotoDetail(movieId: Int, movieName: String) {
+        navigateTo(MovieListFragmentDirections.openMovieDetail(movieId, movieName))
     }
 }

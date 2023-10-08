@@ -9,7 +9,7 @@ import javax.inject.Inject
 /**
  * Created by M.Hafidh Abdul Aziz on 07/10/23.
  */
-class MoviePagingSource @Inject constructor(private val repository: MovieRepository) :
+class MoviePagingSource @Inject constructor(private val repository: Repository) :
     PagingSource<Int, Movie>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {

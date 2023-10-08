@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Movies App</string>
+    <string name="review_and_rating_label">Review and Rating</string>
 </resources>
