@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import com.trawlbens.hometest.R
 import com.trawlbens.hometest.databinding.FragmentMovieListBinding
@@ -94,7 +93,7 @@ class MovieListFragment : BaseFragment<FragmentMovieListBinding>() {
     }
 
     private fun gotoFavorite() {
-        //todo fav
+        navigateTo(MovieListFragmentDirections.openMovieFavorite())
     }
 
     private fun gotoDetail(movieId: Int, movieName: String) {

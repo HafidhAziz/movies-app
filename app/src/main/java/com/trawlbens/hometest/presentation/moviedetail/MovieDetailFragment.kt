@@ -99,8 +99,8 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
     private fun onClickFavorite() {
         favoriteMovieDataSource.addMovie(
             args.movieId,
-            args.movieTitle,
             viewModel.movieDetailData.value?.posterPath.orEmpty(),
+            args.movieTitle,
             viewModel.movieDetailData.value?.releaseDate.orEmpty(),
             viewModel.movieDetailData.value?.overview.orEmpty()
         )

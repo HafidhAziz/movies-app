@@ -29,8 +29,7 @@
 
     <fragment
         android:id="@+id/fragment_movie_favorite"
-        android:name="com.trawlbens.hometest.presentation.movielist.MovieListFragment">
-        <!-- todo change this to favorite fragment when its ready -->
+        android:name="com.trawlbens.hometest.presentation.favorite.FavoriteFragment">
 
         <action
             android:id="@+id/open_movie_detail"
