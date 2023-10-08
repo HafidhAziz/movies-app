@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -15,6 +17,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/\"")
+        buildConfigField("String", "SMALL_IMAGE_URL", "\"https://image.tmdb.org/t/p/w200\"")
+        buildConfigField("String", "LARGE_IMAGE_URL", "\"https://image.tmdb.org/t/p/w500\"")
+        buildConfigField("String", "ORIGINAL_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\"")
+        buildConfigField("String", "TMDB_AUTH", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YjAzNTQyNzVkNTIyOTI3OWU3NWJkZmJlNDlhNTlhOCIsInN1YiI6IjYwNDc3YTlhYzhhNWFjMDAzMDRjOGJjYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YErzbYJOMwuWGJ8JhZLsHpvurjNY691UnHGSvqbW8c8\"")
     }
 
     buildTypes {
@@ -27,20 +34,44 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
+    }
+    buildFeatures {
+        dataBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(AndroidLibraries.kotlinCore)
+    implementation(AndroidLibraries.appCompat)
+    implementation(AndroidLibraries.material)
+    implementation(Libraries.constraintLayout)
+
+    implementation(Libraries.room)
+    annotationProcessor(Libraries.roomCompiler)
+
+    implementation(Libraries.hiltAndroid)
+    kapt(Libraries.hiltAndroidCompiler)
+
+    implementation(Libraries.navigation)
+    implementation(Libraries.navigationUi)
+
+    implementation(Libraries.pagingKtx)
+    implementation(Libraries.pagingRuntime)
+    implementation(Libraries.pagingCommon)
+
+    implementation(Libraries.retrofit)
+    implementation(Libraries.retrofitGsonConverter)
+
+    implementation(Libraries.glide)
+
+    testImplementation(AndroidLibraries.test)
+    androidTestImplementation(AndroidLibraries.androidTest)
+    androidTestImplementation(AndroidLibraries.espresso)
 }

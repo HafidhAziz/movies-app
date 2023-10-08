@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/fragment_movie_list">
+
+    <fragment
+        android:id="@+id/fragment_movie_list"
+        android:name="com.trawlbens.hometest.presentation.movielist.MovieListFragment">
+
+        <action
+            android:id="@+id/open_movie_favorite"
+            app:destination="@id/fragment_movie_favorite">
+
+            <argument
+                android:name="movieId"
+                android:defaultValue=""
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_movie_favorite"
+        android:name="com.trawlbens.hometest.presentation.movielist.MovieListFragment">
+        <!-- todo change this to favorite fragment when its ready -->
+
+        <action
+            android:id="@+id/open_movie_favorite"
+            app:destination="@id/fragment_movie_favorite">
+
+            <argument
+                android:name="movieId"
+                android:defaultValue=""
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_movie_detail"
+        android:name="com.trawlbens.hometest.presentation.movielist.MovieListFragment">
+        <!-- todo change this to detail fragment when its ready -->
+
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
+</navigation>
