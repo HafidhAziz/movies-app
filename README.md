@@ -15,5 +15,5 @@ Simple Movies App for Home Test Purpose
 * Code with love
 
 # Snapshot
-<img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/main.png" width="300"/><img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/detail.png" width="300"/><img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/fav.png" width="300"/>
+<img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/main.jpg" width="300"/><img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/detail.jpg" width="300"/><img src="https://github.com/HafidhAziz/movies-app/blob/main/pictures/fav.jpg" width="300"/>
 
