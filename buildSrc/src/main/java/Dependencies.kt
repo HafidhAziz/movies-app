@@ -14,9 +14,11 @@ object Versions {
     const val navigation = "2.6.0"
     const val room = "2.5.2"
     const val glide = "4.16.0"
+    const val chucker = "4.0.0"
     const val test = "4.13.2"
     const val androidTest = "1.1.5"
     const val espresso = "3.5.1"
+    const val coreTesting = "2.1.0"
 }
 
 object Libraries {
@@ -46,6 +48,10 @@ object Libraries {
 
     // Constraint Layout
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+
+    // Chucker
+    const val chucker = "com.github.chuckerteam.chucker:library:${Versions.chucker}"
+    const val chuckerNoOp = "com.github.chuckerteam.chucker:library:-no-op${Versions.chucker}"
 }
 
 object AndroidLibraries {
@@ -58,4 +64,5 @@ object AndroidLibraries {
     const val test = "junit:junit:${Versions.test}"
     const val androidTest = "androidx.test.ext:junit:${Versions.androidTest}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
 }

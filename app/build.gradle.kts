@@ -73,9 +73,10 @@ dependencies {
     implementation(Libraries.glide)
 
     testImplementation(AndroidLibraries.test)
+    androidTestImplementation(AndroidLibraries.coreTesting)
     androidTestImplementation(AndroidLibraries.androidTest)
     androidTestImplementation(AndroidLibraries.espresso)
 
-    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
-    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
+    debugImplementation(Libraries.chucker)
+    releaseImplementation(Libraries.chuckerNoOp)
 }

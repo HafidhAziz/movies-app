@@ -10,7 +10,6 @@ Simple Movies App for Home Test Purpose
 * Kotlin Coroutines
 * MVVM Pattern
 * Use Dependency Management
-* Sample UI Test
 * Sample Local Database Test
 * Code with love
 
